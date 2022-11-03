@@ -98,13 +98,30 @@ function checaIgualdadeDesconsiderandoCase(string1, string2) {
 function checaRenovacaoRG() {
   const anoAtual = prompt('Digite o ano atual:')
   const anoNasci = prompt('Digite seu ano de nascimento:')
-  const anoCarId = prompt('Digite o ano de emissão do RG:')
+  const anoEmRG = prompt('Digite o ano de emissão do RG:')
 
   const idade = anoAtual - anoNasci
+  const tempoRG = anoAtual - anoEmRG
   console.log(idade)
+  console.log(tempoRG)
 
-  return console.log(idade <= 20 || idade <= 50 || idade > 50)
-} // ?
+  const renovacaoRG =
+    (idade <= 20 && tempoRG >= 5) ||
+    (idade > 20 && idade < 50 && tempoRG >= 10) ||
+    (idade > 50 && tempoRG >= 15)
+
+  /* if (idade <= 20 && tempoRG >= 5) {
+    return true
+  } else if ((idade >= 20 && tempoRG >= 10) || (idade >= 50 && tempoRG >= 10)) {
+    return true
+  } else if (idade > 50 && tempoRG >= 15) {
+    return true
+  } else {
+    return false
+  } */
+
+  return console.log(renovacaoRG)
+} // * OK
 
 // EXERCÍCIO 14
 function checaAnoBissexto(ano) {
@@ -116,7 +133,7 @@ function checaAnoBissexto(ano) {
 // EXERCÍCIO 15
 function checaValidadeInscricaoLabenu() {
   const respostaPositiva = 'sim'
-  const respostaNegativa = 'nao'
+  // const respostaNegativa = 'nao'
 
   const idade = prompt('Você tem mais de 18 anos?')
   const escolaridade = prompt('Você possui ensino médio completo?')
@@ -128,12 +145,18 @@ function checaValidadeInscricaoLabenu() {
   console.log(escolaridade)
   console.log(horario)
 
-  if (idade && escolaridade && horario === respostaPositiva)
+  const inscricaoValida =
+    idade === respostaPositiva &&
+    escolaridade === respostaPositiva &&
+    horario === respostaPositiva
+
+  /* if (idade && escolaridade && horario === respostaPositiva)
     return console.log(true)
   else if (idade === respostaNegativa) return console.log(false)
   else if (escolaridade === respostaNegativa) return console.log(false)
   else if (horario === respostaNegativa) return console.log(false)
-  else return console.log(false)
+  else return console.log(false) */
   // else return false
-} // ?
-// checaValidadeInscricaoLabenu()
+
+  return console.log(inscricaoValida)
+} // * OK
